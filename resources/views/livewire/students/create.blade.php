@@ -5,7 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <form method="GET" wire:submit.prevent="store">
+        @csrf
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <section>
@@ -18,10 +20,6 @@
                             {{ __('Captura de datos de personales del alumno') }}
                         </p>
                     </header>
-
-                    <form method="post" action="" class="mt-6 space-y-6">
-
-
                         <div wire:loading wire:target="image"
                             class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
                             role="alert">
@@ -97,13 +95,10 @@
                         <img class="mb-4" src="{{$img->temporaryUrl()}}">
                     @endif
                         </div>
-                    </form>
                 </section>
             </div>
         </div>
-    </div>
 
-    <div class="">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <section>
@@ -113,9 +108,9 @@
                         </h2>
                     </header>
 
-                    <form method="post" action="" class="mt-6 space-y-6">
+                    <!-- <form method="post" action="" class="mt-6 space-y-6">
                         @csrf
-                        @method('post')
+                        @method('post') -->
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
@@ -164,9 +159,10 @@
                         <div class="flex items-center gap-4">
                             <x-primary-button>Guardar</x-primary-button>
                         </div>
-                    </form>
+                    <!-- </form> -->
                 </section>
             </div>
         </div>
-    </div>
+
+    </form>
 </div>

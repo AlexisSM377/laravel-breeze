@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\student;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
+use App\Models\student;
+use Database\Factories\StudentFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
-        Storage::makeDirectory('students');
+        // Storage::deleteDirectory('student');
+        // Storage::makeDirectory('student');
 
-        student::factory(5)->create();
+        // StudentFactory::factory(5)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

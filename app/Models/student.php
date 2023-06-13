@@ -10,5 +10,7 @@ class student extends Model
 {
     use HasFactory;
    
+    
+ 
 }
 

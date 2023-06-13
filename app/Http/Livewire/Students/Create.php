@@ -51,11 +51,12 @@ class Create extends Component
 
     public function store()
     {
+        dd('EHOLAAAAAAAAA');
         $this->validate();
 
         try {
 
-            $imageName = $this->img->store("studens");
+            $imageName = $this->img->store('studens');
             $student = new student();
             $student->name = $this->nombre;
             $student->lasnamep = $this->apellidom;
