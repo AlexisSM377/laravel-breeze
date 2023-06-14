@@ -9,45 +9,45 @@
         <div class="mt-6 space-y-6">
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <x-input-label for="calle" :value="__('Calle')" />
-                    <x-text-input id="calle" wire:model="calle" type="text" class="mt-1 block w-full"
-                        :value="old('calle')"/>
-                    <x-input-error class="mt-2" :messages="$errors->get('calle')" />
+                    <x-input-label for="street" :value="__('Calle')" />
+                    <x-text-input id="street" wire:model="street" type="text" class="mt-1 block w-full"
+                        :value="old('street')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('street')" />
                 </div>
 
                 <div>
-                    <x-input-label for="numero" :value="__('Numero exterior')" />
-                    <x-text-input id="numero" wire:model="numero" type="text"
-                        class="mt-1 block w-full" :value="old('numero')"/>
-                    <x-input-error class="mt-2" :messages="$errors->get('numero')" />
+                    <x-input-label for="no_ext" :value="__('Numero exterior')" />
+                    <x-text-input id="no_ext" wire:model="no_ext" type="number" class="mt-1 block w-full"
+                        :value="old('no_ext')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('no_ext')" />
                 </div>
 
                 <div>
                     <x-input-label for="cp" :value="__('Código Postal')" />
-                    <x-text-input id="cp" wire:model="cp" type="text" class="mt-1 block w-full"
-                        :value="old('cp')"/>
+                    <x-text-input id="cp" wire:model="cp" type="number" class="mt-1 block w-full"
+                        :value="old('cp')" />
                     <x-input-error class="mt-2" :messages="$errors->get('cp')" />
                 </div>
 
                 <div>
-                    <x-input-label for="estado" :value="__('Estado')" />
-                    <x-text-input id="estado" wire:model="estado" type="text"
-                        class="mt-1 block w-full" :value="old('estado')"/>
-                    <x-input-error class="mt-2" :messages="$errors->get('estado')" />
+                    <x-input-label for="state_id" :value="__('Estado')" />
+                    <x-text-input id="state_id" wire:model="state_id" type="text" class="mt-1 block w-full"
+                        :value="old('state_id')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('state_id')" />
                 </div>
 
                 <div>
-                    <x-input-label for="ciudad" :value="__('Cuidad')" />
-                    <x-text-input id="ciudad" wire:model="ciudad" type="text"
-                        class="mt-1 block w-full" :value="old('ciudad')"/>
-                    <x-input-error class="mt-2" :messages="$errors->get('ciudad')" />
+                    <x-input-label for="city_id" :value="__('Cuidad')" />
+                    <x-text-input id="city_id" wire:model="city_id" type="text" class="mt-1 block w-full"
+                        :value="old('city_id')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('city_id')" />
                 </div>
 
                 <div>
-                    <x-input-label for="colonia" :value="__('Colonia')" />
-                    <x-text-input id="colonia" wire:model="colonia" type="text"
-                        class="mt-1 block w-full" :value="old('colonia')"/>
-                    <x-input-error class="mt-2" :messages="$errors->get('colonia')" />
+                    <x-input-label for="cologne" :value="__('Colonia')" />
+                    <x-text-input id="cologne" wire:model="cologne" type="text" class="mt-1 block w-full"
+                        :value="old('cologne')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('cologne')" />
                 </div>
             </div>
         </div>

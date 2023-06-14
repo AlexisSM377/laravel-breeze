@@ -10,77 +10,78 @@
             </p>
         </header>
         <div class="mt-6 space-y-6">
+
+            @if ($img)
+                <img class="mb-4" src="{{ $img->temporaryUrl() }}">
+            @endif
             <div wire:loading wire:target="image"
-                class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                role="alert">
+                class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                 <strong class="font-bold">Imagen cargando!</strong>
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <x-input-label for="name" :value="__('Nombre')" />
                     <x-text-input id="name" wire:model="name" type="text" class="mt-1 block w-full"
-                        :value="old('name')" required autofocus autocomplete="username" />
+                        :value="old('name')" />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
                 <div>
-                    <x-input-label for="apellidop" :value="__('Apellido Paterno')" />
-                    <x-text-input id="apellidop" wire:model="apellidop" type="text"
-                        class="mt-1 block w-full" :value="old('apellidop')" required autocomplete="apellidop" />
-                    <x-input-error class="mt-2" :messages="$errors->get('apellidop')" />
+                    <x-input-label for="lasnamep" :value="__('Apellido Paterno')" />
+                    <x-text-input id="lasnamep" wire:model="lasnamep" type="text" class="mt-1 block w-full"
+                        :value="old('lasnamep')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('lasnamep')" />
                 </div>
 
                 <div>
-                    <x-input-label for="apellidom" :value="__('Apellido materno')" />
-                    <x-text-input id="apellidom" wire:model="apellidom" type="text"
-                        class="mt-1 block w-full" :value="old('apellidom')" required autocomplete="username" />
-                    <x-input-error class="mt-2" :messages="$errors->get('apellidom')" />
+                    <x-input-label for="lasnamem" :value="__('Apellido materno')" />
+                    <x-text-input id="lasnamem" wire:model="lasnamem" type="text" class="mt-1 block w-full"
+                        :value="old('lasnamem')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('lasnamem')" />
                 </div>
 
                 <div>
                     <x-input-label for="email" :value="__('Correo Electrónico')" />
                     <x-text-input id="email" wire:model="email" type="email" class="mt-1 block w-full"
-                        :value="old('email')" required autocomplete="email" />
+                        :value="old('email')" />
                     <x-input-error class="mt-2" :messages="$errors->get('email')" />
                 </div>
 
                 <div>
                     <x-input-label for="phone" :value="__('Teléfono')" />
-                    <x-text-input id="phone" wire:model="phone" type="text" class="mt-1 block w-full"
-                        :value="old('phone')" required autocomplete="phone" />
+                    <x-text-input id="phone" wire:model="phone" type="number" class="mt-1 block w-full"
+                        :value="old('phone')" />
                     <x-input-error class="mt-2" :messages="$errors->get('phone')" />
                 </div>
 
                 <div>
-                    <x-input-label for="nacimiento" :value="__('Fecha de nacimiento')" />
-                    <x-text-input id="nacimiento" wire:model="nacimiento" type="date"
-                        class="mt-1 block w-full" :value="old('nacimiento')" required autocomplete="username" />
-                    <x-input-error class="mt-2" :messages="$errors->get('nacimiento')" />
+                    <x-input-label for="birthdate" :value="__('Fecha de nacimiento')" />
+                    <x-text-input id="birthdate" wire:model="birthdate" type="date" class="mt-1 block w-full"
+                        :value="old('birthdate')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('birthdate')" />
                 </div>
 
                 <div>
-                    <x-input-label for="genero" :value="__('Genero')" />
-                    <x-text-input id="genero" wire:model="genero" type="text"
-                        class="mt-1 block w-full" :value="old('genero')" required autocomplete="username" />
-                    <x-input-error class="mt-2" :messages="$errors->get('genero')" />
+                    <x-input-label for="gender" :value="__('Genero')" />
+                    <x-text-input id="gender" wire:model="gender" type="text" class="mt-1 block w-full"
+                        :value="old('gender')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('gender')" />
                 </div>
 
                 <div>
                     <x-input-label for="curp" :value="__('CURP')" />
                     <x-text-input id="curp" wire:model="curp" type="text" class="mt-1 block w-full uppercase"
-                        :value="old('curp')" required autocomplete="curp" />
+                        :value="old('curp')" />
                     <x-input-error class="mt-2" :messages="$errors->get('curp')" />
                 </div>
 
                 <div>
                     <x-input-label for="img" :value="__('Foto')" />
                     <x-text-input id="img" wire:model="img" type="file" class="mt-1 block w-full"
-                        :value="old('img')" required autocomplete="img" />
+                        :value="old('img')" />
                     <x-input-error for="img" class="mt-2" :messages="$errors->get('img')" />
                 </div>
-                @if ($img)
-                    <img class="mb-4" src="{{$img->temporaryUrl()}}">
-                @endif
+
             </div>
         </div>
     </section>

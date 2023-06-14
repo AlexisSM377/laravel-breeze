@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Students;
 
+use App\Models\home;
 use App\Models\student;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -21,15 +22,15 @@ class Create extends Component
     public $gender;
     public $curp;
     // Informacion de domicilio
-    public $calle;
-    public $numero;
+    public $street;
+    public $no_ext;
     public $cp;
-    public $estado;
-    public $ciudad;
-    public $colonia;
+    public $state_id;
+    public $city_id;
+    public $cologne;
     // Informacion de estados y ciudades.
-    public $ciudades;
-    public $estados;
+    public $citys;
+    public $states;
 
     protected $rules = [
         'name' => 'required',
@@ -42,14 +43,14 @@ class Create extends Component
         'gender' => 'required',
         'curp' => 'required',
         // Validacion de datos de domicilio
-        'calle' => 'required',
-        'numero' => 'required',
+        'street' => 'required',
+        'no_ext' => 'required',
         'cp' => 'required|size:5',
-        'estado' => 'required',
-        'ciudad' => 'required',
-        'colonia' => 'required',
+        'state_id' => 'required',
+        'city_id' => 'required',
+        'cologne' => 'required',
     ];
- 
+
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -58,7 +59,6 @@ class Create extends Component
     // public function mount(){
     //     // Consultar estados.
     // }
-    
 
     public function render()
     {
@@ -70,23 +70,23 @@ class Create extends Component
         $this->validate();
 
         try {
-
+            //Guardado de imagen
             $imageName = $this->img->store('studens');
-            
+
             // Guardado de informacion personal.
             $studentId = $this->guardarInfoPersonal();
             // Guardado de informacion domicilio.
-            // $this->guardarInfoDomicilio($studentId);
+            $this->guardarInfoDomicilio($studentId);
 
             $this->reset();
             $this->emit('saved');
-
         } catch (\Throwable $th) {
             $this->emit('error');
         }
     }
 
-    public function guardarInfoPersonal(){
+    public function guardarInfoPersonal()
+    {
         $student = new student();
         $student->name = $this->nombre;
         $student->lasnamep = $this->apellidom;
@@ -102,7 +102,20 @@ class Create extends Component
         return $student->id;
     }
 
-    public function guardarInfoDomicilio($studentId){
+    public function guardarInfoDomicilio($studentId)
+    {
         // Aqui va el codigo para guardar la info del domicilio.
+
+        try {
+            $home = new home();
+            $home->cologne = $this->colinia;
+            $home->no_ext = $this->numero;
+            $home->cp = $this->cp;
+            $home->street = $this->calle;
+            $home->state_id = $this->state_id;
+            $home->city_id = $this->city_id;
+        } catch (\Throwable $th) {
+            $this->emit('error');
+        }
     }
 }
