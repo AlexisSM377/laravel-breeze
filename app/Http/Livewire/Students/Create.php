@@ -10,6 +10,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    // Informacion personal
     public $name;
     public $lasnamep;
     public $lasnamem;
@@ -19,12 +20,16 @@ class Create extends Component
     public $birthdate;
     public $gender;
     public $curp;
-    public $identificador;
-
-
-    public function mount(){
-        $this->identificador = rand();
-    }
+    // Informacion de domicilio
+    public $calle;
+    public $numero;
+    public $cp;
+    public $estado;
+    public $ciudad;
+    public $colonia;
+    // Informacion de estados y ciudades.
+    public $ciudades;
+    public $estados;
 
     protected $rules = [
         'name' => 'required',
@@ -32,16 +37,27 @@ class Create extends Component
         'lasnamem' => 'required',
         'img' => 'image|required|max:2048',
         'email' => 'required|email',
-        'phone' => 'required|min:10',
+        'phone' => 'required|size:10',
         'birthdate' => 'required|date',
         'gender' => 'required',
         'curp' => 'required',
+        // Validacion de datos de domicilio
+        'calle' => 'required',
+        'numero' => 'required',
+        'cp' => 'required|size:5',
+        'estado' => 'required',
+        'ciudad' => 'required',
+        'colonia' => 'required',
     ];
  
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
     }
+
+    // public function mount(){
+    //     // Consultar estados.
+    // }
     
 
     public function render()
@@ -51,30 +67,42 @@ class Create extends Component
 
     public function store()
     {
-        dd('EHOLAAAAAAAAA');
         $this->validate();
 
         try {
 
             $imageName = $this->img->store('studens');
-            $student = new student();
-            $student->name = $this->nombre;
-            $student->lasnamep = $this->apellidom;
-            $student->lasnamem = $this->apellidop;
-            $student->img = $imageName;
-            $student->email = $this->correo;
-            $student->phone = $this->telefono;
-            $student->birthdate = $this->nacimiento;
-            $student->gender = $this->genero;
-            $student->curp = $this->curp;
-            $student->save();
+            
+            // Guardado de informacion personal.
+            $studentId = $this->guardarInfoPersonal();
+            // Guardado de informacion domicilio.
+            // $this->guardarInfoDomicilio($studentId);
 
             $this->reset();
-            $this->identificador = rand();
             $this->emit('saved');
 
         } catch (\Throwable $th) {
             $this->emit('error');
         }
+    }
+
+    public function guardarInfoPersonal(){
+        $student = new student();
+        $student->name = $this->nombre;
+        $student->lasnamep = $this->apellidom;
+        $student->lasnamem = $this->apellidop;
+        // $student->img = $imageName;
+        $student->email = $this->correo;
+        $student->phone = $this->telefono;
+        $student->birthdate = $this->nacimiento;
+        $student->gender = $this->genero;
+        $student->curp = $this->curp;
+        $student->save();
+
+        return $student->id;
+    }
+
+    public function guardarInfoDomicilio($studentId){
+        // Aqui va el codigo para guardar la info del domicilio.
     }
 }
