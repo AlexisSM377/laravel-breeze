@@ -30,16 +30,12 @@
                 </div>
 
                 <div>
-                    <x-input-label for="state_id" :value="__('Estado')" />
-                    <x-text-input id="state_id" wire:model="state_id" type="text" class="mt-1 block w-full"
-                        :value="old('state_id')" />
-                    <x-input-error class="mt-2" :messages="$errors->get('state_id')" />
+                    <x-select-id etiqueta="Selecciona un Estado" titulo="Estados" nombre="stateId" wire:model="stateId" :list="$states"  :value="(isset($stateId)) ? $stateId : null" />
+                    <x-input-error class="mt-2" :messages="$errors->get('stateId')" />
                 </div>
 
                 <div>
-                    <x-input-label for="city_id" :value="__('Cuidad')" />
-                    <x-text-input id="city_id" wire:model="city_id" type="text" class="mt-1 block w-full"
-                        :value="old('city_id')" />
+                    <x-select-id etiqueta="Selecciona una Ciudad" titulo="Ciudades" nombre="city_id" wire:model="city_id" :list="$cities"  :value="(isset($city_id)) ? $city_id : null" />
                     <x-input-error class="mt-2" :messages="$errors->get('city_id')" />
                 </div>
 

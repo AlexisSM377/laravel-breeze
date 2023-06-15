@@ -9,17 +9,17 @@ class city extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'state_id',
-        'name'
-    ];
+    // protected $fillable = [
+    //     'state_id',
+    //     'name'
+    // ];
 
     public function state()
     {
-        return $this->hasOne(state::class, 'id', 'state_id');
+        return $this->belongsTo(state::class, 'id', 'state_id');
     }
     public function homes()
     {
-        return $this->hasMany(home::class, 'id', 'city_id');
+        return $this->belongsTo(home::class, 'id', 'city_id');
     }
 }

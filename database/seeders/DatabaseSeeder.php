@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 use App\Models\student;
 use Database\Factories\StudentFactory;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call([
+            StatesSeeder::class,
+            CitysSeeder::class
+        ]);
+        
         // \App\Models\User::factory(10)->create();
         // Storage::deleteDirectory('student');
         // Storage::makeDirectory('student');

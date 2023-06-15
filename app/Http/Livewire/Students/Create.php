@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Students;
 
+use App\Models\city;
 use App\Models\home;
+use App\Models\state;
 use App\Models\student;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -25,11 +27,11 @@ class Create extends Component
     public $street;
     public $no_ext;
     public $cp;
-    public $state_id;
+    public $stateId;
     public $city_id;
     public $cologne;
     // Informacion de estados y ciudades.
-    public $citys;
+    public $cities = [];
     public $states;
 
     protected $rules = [
@@ -46,7 +48,7 @@ class Create extends Component
         'street' => 'required',
         'no_ext' => 'required',
         'cp' => 'required|size:5',
-        'state_id' => 'required',
+        'stateId' => 'required',
         'city_id' => 'required',
         'cologne' => 'required',
     ];
@@ -56,13 +58,19 @@ class Create extends Component
         $this->validateOnly($propertyName);
     }
 
-    // public function mount(){
-    //     // Consultar estados.
-    // }
+    public function mount()
+    {
+        $this->states = state::all();
+    }
 
     public function render()
     {
         return view('livewire.students.create');
+    }
+
+    public function updatedStateId()
+    {
+        $this->cities = city::where('state_id', $this->stateId)->get();
     }
 
     public function store()
@@ -74,28 +82,29 @@ class Create extends Component
             $imageName = $this->img->store('studens');
 
             // Guardado de informacion personal.
-            $studentId = $this->guardarInfoPersonal();
+            $studentId = $this->guardarInfoPersonal($imageName);
             // Guardado de informacion domicilio.
             $this->guardarInfoDomicilio($studentId);
 
-            $this->reset();
+            return redirect()->to('/dashboard');
+
             $this->emit('saved');
         } catch (\Throwable $th) {
             $this->emit('error');
         }
     }
 
-    public function guardarInfoPersonal()
+    public function guardarInfoPersonal($imageName)
     {
         $student = new student();
-        $student->name = $this->nombre;
-        $student->lasnamep = $this->apellidom;
-        $student->lasnamem = $this->apellidop;
-        // $student->img = $imageName;
-        $student->email = $this->correo;
-        $student->phone = $this->telefono;
-        $student->birthdate = $this->nacimiento;
-        $student->gender = $this->genero;
+        $student->name = $this->name;
+        $student->lastname_p = $this->lasnamep;
+        $student->lastname_m = $this->lasnamem;
+        $student->img = $imageName;
+        $student->email = $this->email;
+        $student->phone = $this->phone;
+        $student->birthdate = $this->birthdate;
+        $student->gender = $this->gender;
         $student->curp = $this->curp;
         $student->save();
 
@@ -104,18 +113,16 @@ class Create extends Component
 
     public function guardarInfoDomicilio($studentId)
     {
-        // Aqui va el codigo para guardar la info del domicilio.
+        // Aqui va el codigo para guardar la info del domicilio
 
-        try {
-            $home = new home();
-            $home->cologne = $this->colinia;
-            $home->no_ext = $this->numero;
-            $home->cp = $this->cp;
-            $home->street = $this->calle;
-            $home->state_id = $this->state_id;
-            $home->city_id = $this->city_id;
-        } catch (\Throwable $th) {
-            $this->emit('error');
-        }
+        $home = new home();
+        $home->cologne = $this->cologne;
+        $home->no_ext = $this->no_ext;
+        $home->cp = $this->cp;
+        $home->street = $this->street;
+        $home->state_id = $this->stateId;
+        $home->city_id = $this->city_id;
+        $home->student_id = $studentId;
+        $home->save();
     }
 }

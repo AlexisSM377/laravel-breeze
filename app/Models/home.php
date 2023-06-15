@@ -11,6 +11,8 @@ class home extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $tabla = 'homes';
+
     protected $fillable = [
         'cologne',
         'cp',
@@ -22,6 +24,18 @@ class home extends Model
 
     public function city()
     {
-        return $this->belongsTo(city::class, 'state_id', 'id');
+        return $this->hasOne(city::class);
     }
+
+    public function state()
+    {
+        return $this->hasOne(state::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(student::class);
+    }
+
+
 }
