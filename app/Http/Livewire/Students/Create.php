@@ -79,7 +79,7 @@ class Create extends Component
 
         try {
             //Guardado de imagen
-            $imageName = $this->img->store('studens');
+            $imageName = $this->img->store('students', 'public');
 
             // Guardado de informacion personal.
             $studentId = $this->guardarInfoPersonal($imageName);

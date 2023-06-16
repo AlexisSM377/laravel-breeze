@@ -11,6 +11,7 @@
             @include('livewire.students.partials.informacion-personal')
             <!-- IBNFORMACION DE DOMICILIO DE ALUMNO -->
             @include('livewire.students.partials.domicilio')
+            
             <div class="mt-6 text-right" >
                 <x-primary-button wire:click.prevent="store()">Guardar</x-primary-button>
             </div>

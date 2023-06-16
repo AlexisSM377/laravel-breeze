@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class student extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +30,7 @@ class student extends Model
 
     public function home()
     {
-        return $this->hasOne(home::class, 'homes_id', 'id');
+        return $this->hasOne(home::class);
     }
 
 

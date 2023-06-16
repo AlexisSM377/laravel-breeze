@@ -10,19 +10,17 @@
             </p>
         </header>
         <div class="mt-6 space-y-6">
-
-            @if ($img)
-                <img class="mb-4" src="{{ $img->temporaryUrl() }}">
+            {{-- se muestra la prevalizacion solo cuando se esta creando un estudiante --}}
+            @if ($img && !isset($estudianteactual))
+                <img class="mb-4 w-80 h-50" src="{{ $img->temporaryUrl() }}">
             @endif
-            <div wire:loading wire:target="image"
-                class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                <strong class="font-bold">Imagen cargando!</strong>
-            </div>
+            @if (isset($estudianteactual))
+            <img class="w-80 h-50 " src="{{asset('storage/'.$estudianteactual->img)}}" alt="Jese image">
+            @endif
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <x-input-label for="name" :value="__('Nombre')" />
-                    <x-text-input id="name" wire:model="name" type="text" class="mt-1 block w-full"
-                        :value="old('name')" />
+                    <x-text-input id="name" wire:model="name" type="text" class="mt-1 block w-full" />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
@@ -51,7 +49,7 @@
                     <x-input-label for="phone" :value="__('Teléfono')" />
                     <x-text-input id="phone" wire:model="phone" type="number" class="mt-1 block w-full"
                         :value="old('phone')" />
-                    <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+                    <x-input-error class="mt-2" :messages="$errors->get('phone')" />.
                 </div>
 
                 <div>

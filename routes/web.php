@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/students/create', App\Http\Livewire\Students\Create::class)->name('students.create');
-Route::get('/students/index', App\Http\Livewire\Students\Create::class)->name('students.index');
+Route::get('/students/index', App\Http\Livewire\Students\Index::class)->name('students.index');
+Route::get('/students/edit/{slug}', App\Http\Livewire\Students\Edit::class)->name('students.edit');
 
 require __DIR__.'/auth.php';
