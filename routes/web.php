@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Students\Create;
+use App\Http\Livewire\Students\Index;
+use App\Http\Livewire\Students\Edit;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +39,8 @@ Route::get('/emails/students', function () {
     return view('emails.flight_created');
 });
 
-Route::get('/students/create', App\Http\Livewire\Students\Create::class)->name('students.create');
-Route::get('/students/index', App\Http\Livewire\Students\Index::class)->name('students.index');
-Route::get('/students/edit/{slug}', App\Http\Livewire\Students\Edit::class)->name('students.edit');
+Route::get('/students/create', Create::class)->name('students.create');
+Route::get('/students/index', Index::class)->name('students.index');
+Route::get('/students/edit/{slug}', Edit::class)->name('students.edit');
 
 require __DIR__.'/auth.php';
