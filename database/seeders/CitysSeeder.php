@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\city;
-use App\Models\state;
+use App\Models\State;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,7 +16,7 @@ class CitysSeeder extends Seeder
     {
         /* elimino datos si existen en la tabla */
         /*  */
-        state::where('nombre', 'Aguascalientes')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Aguascalientes')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Aguascalientes'],
             ['nombre' => 'Asientos'],
             ['nombre' => 'Calvillo'],
@@ -30,7 +30,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Tepezala'],
         ]);
 
-        state::where('nombre', 'Baja California')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Baja California')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Ensenada'],
             ['nombre' => 'Mexicali'],
             ['nombre' => 'Playas de Rosarito'],
@@ -38,7 +38,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Tijuana']
         ]);
 
-        state::where('nombre', 'Baja California Sur')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Baja California Sur')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Comondu'],
             ['nombre' => 'La Paz'],
             ['nombre' => 'Loreto'],
@@ -46,7 +46,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Mulege']
         ]);
 
-        state::where('nombre', 'Campeche')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Campeche')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Calakmul'],
             ['nombre' => 'Calkini'],
             ['nombre' => 'Campeche'],
@@ -60,7 +60,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Tenabo'],
         ]);
 
-        state::where('nombre', 'Coahuila')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Coahuila')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Abasolo'],
             ['nombre' => 'Acuna'],
             ['nombre' => 'Allende'],
@@ -101,7 +101,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zaragoza'],
         ]);
 
-        state::where('nombre', 'Colima')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Colima')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Armeria'],
             ['nombre' => 'Colima'],
             ['nombre' => 'Comala'],
@@ -114,7 +114,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Villa de Alvarez']
         ]);
 
-        state::where('nombre', 'Chiapas')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Chiapas')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acacoyagua'],
             ['nombre' => 'Acala'],
             ['nombre' => 'Acapetahua'],
@@ -240,7 +240,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zinacantan']
         ]);
 
-        state::where('nombre', 'Chihuahua')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Chihuahua')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Ahumada'],
             ['nombre' => 'Aldama'],
             ['nombre' => 'Allende'],
@@ -310,7 +310,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Valle de Zaragoza']
         ]);
 
-        state::where('nombre', 'Ciudad de México')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Ciudad de México')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Alvaro Obregon'],
             ['nombre' => 'Azcapotzalco'],
             ['nombre' => 'Benito Juarez'],
@@ -329,7 +329,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Xochimilco']
         ]);
 
-        state::where('nombre', 'Durango')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Durango')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Canatlan'],
             ['nombre' => 'Canelas'],
             ['nombre' => 'Coneto de Comonfort'],
@@ -371,7 +371,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Vicente Guerrero']
         ]);
 
-        state::where('nombre', 'Guanajuato')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Guanajuato')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Abasolo'],
             ['nombre' => 'Acambaro'],
             ['nombre' => 'Apaseo el Alto'],
@@ -420,7 +420,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Yuriria']
         ]);
 
-        state::where('nombre', 'Guerrero')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Guerrero')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acapulco de Juarez'],
             ['nombre' => 'Acatepec'],
             ['nombre' => 'Ahuacuotzingo'],
@@ -504,7 +504,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zitlala']
         ]);
 
-        state::where('nombre', 'Hidalgo')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Hidalgo')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acatlan'],
             ['nombre' => 'Acaxochitlan'],
             ['nombre' => 'Actopan'],
@@ -591,7 +591,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zimapan']
         ]);
 
-        state::where('nombre', 'Jalisco')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Jalisco')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acatic'],
             ['nombre' => 'Acatlan de Juarez'],
             ['nombre' => 'Ahualulco de Mercado'],
@@ -719,7 +719,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zapotlanejo']
         ]);
 
-        state::where('nombre', 'Estado de México')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Estado de México')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acambay de Ruiz Castaneda'],
             ['nombre' => 'Acolman'],
             ['nombre' => 'Aculco'],
@@ -847,7 +847,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zumpango'],
         ]);
 
-        state::where('nombre', 'Michoacán')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Michoacán')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acuitzio'],
             ['nombre' => 'Aguililla'],
             ['nombre' => 'Alvaro Obregon'],
@@ -963,7 +963,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zitacuaro']
         ]);
 
-        state::where('nombre', 'Morelos')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Morelos')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Amacuzac'],
             ['nombre' => 'Atlatlahucan'],
             ['nombre' => 'Axochiapan'],
@@ -999,7 +999,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zacualpan de Amilpas']
         ]);
 
-        state::where('nombre', 'Nayarit')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Nayarit')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acaponeta'],
             ['nombre' => 'Ahuacatlan'],
             ['nombre' => 'Amatlan de Canas'],
@@ -1022,7 +1022,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Xalisco']
         ]);
 
-        state::where('nombre', 'Nuevo León')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Nuevo León')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Abasolo'],
             ['nombre' => 'Agualeguas'],
             ['nombre' => 'Allende'],
@@ -1076,7 +1076,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Villaldama']
         ]);
 
-        state::where('nombre', 'Oaxaca')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Oaxaca')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Abejones'],
             ['nombre' => 'Acatlan de Perez Figueroa'],
             ['nombre' => 'Animas Trujano'],
@@ -1650,7 +1650,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zimatlan de Alvarez']
         ]);
 
-        state::where('nombre', 'Puebla')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Puebla')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acajete'],
             ['nombre' => 'Acateno'],
             ['nombre' => 'Acatlan'],
@@ -1870,7 +1870,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zoquitlan']
         ]);
 
-        state::where('nombre', 'Querétaro')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Querétaro')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Amealco de Bonfil'],
             ['nombre' => 'Arroyo Seco'],
             ['nombre' => 'Cadereyta de Montes'],
@@ -1891,7 +1891,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Toliman']
         ]);
 
-        state::where('nombre', 'Quintana Roo')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Quintana Roo')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Bacalar'],
             ['nombre' => 'Benito Juarez'],
             ['nombre' => 'Cozumel'],
@@ -1905,7 +1905,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Tulum']
         ]);
 
-        state::where('nombre', 'San Luis Potosí')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'San Luis Potosí')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Ahualulco'],
             ['nombre' => 'Alaquines'],
             ['nombre' => 'Aquismon'],
@@ -1966,7 +1966,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zaragoza']
         ]);
 
-        state::where('nombre', 'Sinaloa')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Sinaloa')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Ahome'],
             ['nombre' => 'Angostura'],
             ['nombre' => 'Badiraguato'],
@@ -1987,7 +1987,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Sinaloa'],
         ]);
 
-        state::where('nombre', 'Sonora')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Sonora')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Aconchi'],
             ['nombre' => 'Agua Prieta'],
             ['nombre' => 'Alamos'],
@@ -2062,7 +2062,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Yecora']
         ]);
 
-        state::where('nombre', 'Tabasco')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Tabasco')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Balancan'],
             ['nombre' => 'Cardenas'],
             ['nombre' => 'Centla'],
@@ -2082,7 +2082,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Tenosique']
         ]);
 
-        state::where('nombre', 'Tamaulipas')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Tamaulipas')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Abasolo'],
             ['nombre' => 'Aldama'],
             ['nombre' => 'Altamira'],
@@ -2128,7 +2128,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Xicotencatl']
         ]);
 
-        state::where('nombre', 'Tlaxcala')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Tlaxcala')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acuamanala de Miguel Hidalgo'],
             ['nombre' => 'Amaxac de Guerrero'],
             ['nombre' => 'Apetatitlan de Antonio Carvajal'],
@@ -2191,7 +2191,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Ziltlaltepec de Trinidad Sanchez Santos']
         ]);
 
-        state::where('nombre', 'Veracruz')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Veracruz')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Acajete'],
             ['nombre' => 'Acatlan'],
             ['nombre' => 'Acayucan'],
@@ -2406,7 +2406,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Zozocolco de Hidalgo']
         ]);
 
-        state::where('nombre', 'Yucatan')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Yucatan')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Abala'],
             ['nombre' => 'Acanceh'],
             ['nombre' => 'Akil'],
@@ -2515,7 +2515,7 @@ class CitysSeeder extends Seeder
             ['nombre' => 'Yobain'],
         ]);
 
-        state::where('nombre', 'Zacatecas')->firstOrFail()->cities()->createMany([
+        State::where('nombre', 'Zacatecas')->firstOrFail()->cities()->createMany([
             ['nombre' => 'Apozol'],
             ['nombre' => 'Apulco'],
             ['nombre' => 'Atolinga'],

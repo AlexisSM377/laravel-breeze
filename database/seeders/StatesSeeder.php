@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\state;
+use App\Models\State;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,7 +16,7 @@ class StatesSeeder extends Seeder
          /* elimina todos los datos si es que la tabla tubiera datos  */
          
          /* inserta los estados */
-         state::insert([
+         State::insert([
              ['nombre' => 'Aguascalientes'],
              ['nombre' => 'Baja California'],
              ['nombre' => 'Baja California Sur'],

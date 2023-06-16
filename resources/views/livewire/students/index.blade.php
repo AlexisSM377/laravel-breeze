@@ -55,9 +55,6 @@
                             </td>
                        
                         <x-td>
-                            <label class="text-sm font-medium text-gray-900 cursor-pointer" title="ver">
-                                👁️‍🗨️
-                            </label>
                             <a href="{{route('students.edit', $student->id)}}" class="text-sm font-medium text-gray-900 cursor-pointer" title="editar"
                                 wire:click="editar">
                                 ✍️

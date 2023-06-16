@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Students;
 
-use App\Models\city;
-use App\Models\home;
-use App\Models\state;
-use App\Models\student;
+use App\Models\City;
+use App\Models\Home;
+use App\Models\State;
+use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -60,7 +60,7 @@ class Create extends Component
 
     public function mount()
     {
-        $this->states = state::all();
+        $this->states = State::all();
     }
 
     public function render()
@@ -70,7 +70,7 @@ class Create extends Component
 
     public function updatedStateId()
     {
-        $this->cities = city::where('state_id', $this->stateId)->get();
+        $this->cities = City::where('state_id', $this->stateId)->get();
     }
 
     public function store()
@@ -96,7 +96,7 @@ class Create extends Component
 
     public function guardarInfoPersonal($imageName)
     {
-        $student = new student();
+        $student = new Student();
         $student->name = $this->name;
         $student->lastname_p = $this->lasnamep;
         $student->lastname_m = $this->lasnamem;
@@ -115,7 +115,7 @@ class Create extends Component
     {
         // Aqui va el codigo para guardar la info del domicilio
 
-        $home = new home();
+        $home = new Home();
         $home->cologne = $this->cologne;
         $home->no_ext = $this->no_ext;
         $home->cp = $this->cp;

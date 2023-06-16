@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Students;
 
-use App\Models\city;
-use App\Models\state;
-use App\Models\student;
+use App\Models\City;
+use App\Models\State;
+use App\Models\Student;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -57,9 +57,9 @@ class Edit extends Component
 
     public function mount($slug)
     {
-        $this->states = state::all();
-        $this->cities = city::all();
-        $this->estudianteactual = student::find($slug);
+        $this->states = State::all();
+        $this->cities = City::all();
+        $this->estudianteactual = Student::find($slug);
         $this->cargarInformacion();
     }
 
@@ -70,7 +70,7 @@ class Edit extends Component
 
     public function updatedStateId()
     {
-        $this->cities = city::where('state_id', $this->stateId)->get();
+        $this->cities = City::where('state_id', $this->stateId)->get();
     }
 
     public function cargarInformacion(){

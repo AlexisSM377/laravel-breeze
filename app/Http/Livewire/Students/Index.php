@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Students;
 
-use App\Models\student;
+use App\Models\Student;
 use Livewire\Component;
 
 
@@ -18,7 +18,7 @@ class Index extends Component
     }
 
     public function delete($id){
-        $students = student::find($id);
+        $students = Student::find($id);
         $students->delete();
     }
 }

@@ -29,9 +29,11 @@ Route::get('/comm', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); 
+});
 
-    
+Route::get('/emails/students', function () {
+    return view('emails.flight_created');
 });
 
 Route::get('/students/create', App\Http\Livewire\Students\Create::class)->name('students.create');

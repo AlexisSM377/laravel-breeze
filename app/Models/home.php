@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class home extends Model
+class Home extends Model
 {
     use HasFactory;
-    // use SoftDeletes;
 
     protected $tabla = 'homes';
 
@@ -24,17 +23,17 @@ class home extends Model
 
     public function city()
     {
-        return $this->hasOne(city::class);
+        return $this->hasOne(City::class);
     }
 
     public function state()
     {
-        return $this->hasOne(state::class);
+        return $this->hasOne(State::class);
     }
 
     public function student()
     {
-        return $this->belongsTo(student::class);
+        return $this->belongsTo(Student::class);
     }
 
 
