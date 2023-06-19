@@ -24,7 +24,8 @@ class StudentsController extends Controller
     public function create()
     {
         $states = State::all();
-        return view('students.create', compact('states'));
+        $cities = City::all();
+        return view('students.create', compact('states', 'cities'));
     }
 
     /**
