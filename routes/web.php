@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Students\Create;
 use App\Http\Livewire\Students\Index;
@@ -39,8 +40,14 @@ Route::get('/emails/students', function () {
     return view('emails.flight_created');
 });
 
-Route::get('/students/create', Create::class)->name('students.create');
-Route::get('/students/index', Index::class)->name('students.index');
-Route::get('/students/edit/{slug}', Edit::class)->name('students.edit');
+
+//rutas Controller
+Route::resource('students', StudentsController::class);
+Route::get('municipios-estados/{id}',[StudentsController::class,'obtenerMunicipios']);
+
+//rutas liveware
+// Route::get('/students/create', Create::class)->name('students.create');
+// Route::get('/students/index', Index::class)->name('students.index');
+// Route::get('/students/edit/{slug}', Edit::class)->name('students.edit');
 
 require __DIR__.'/auth.php';

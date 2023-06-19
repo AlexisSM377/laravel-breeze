@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Students;
 
+use App\Models\Stude;
 use App\Models\Student;
 use Livewire\Component;
 
@@ -13,7 +14,7 @@ class Index extends Component
 
     public function render()
     {
-        $this->students= student::all();
+        $this->students= Student::all();
         return view('livewire.students.index');  
     }
 
