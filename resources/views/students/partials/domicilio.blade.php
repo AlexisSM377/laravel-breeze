@@ -17,7 +17,7 @@
 
                 <div>
                     <x-input-label for="no_ext" :value="__('Numero exterior')" />
-                    <x-text-input id="no_ext" name="no_ext" type="number" class="mt-1 block w-full"
+                    <x-text-input id="no_ext" name="no_ext" type="number" class="mt-2 block w-full"
                         :value="old('no_ext', $student->home->no_ext ?? '')" />
                     <x-input-error class="mt-2" :messages="$errors->get('no_ext')" />
                 </div>
